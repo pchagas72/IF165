@@ -36,7 +36,7 @@ int main(){
         case 2:{
             float r;
             scanf("%f",&r);
-            printf("a area do circulo e: %.2f",circulo(r));
+            printf("a area do circulo e %.2f",circulo(r));
             break;
         }
         case 3:{
