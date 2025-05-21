@@ -20,11 +20,17 @@ void printSaida(float sb, float aliquota, float imposto){
     if (aliquota == (int)aliquota){
         substituir = 1;
     }
+    if (sb == 5000){
+        substituir = 2;
+    }
 
     printf("Salario bruto: R$ %.2f\n",sb); 
     if (substituir == 1){
-        printf("Aliquota aplicada: %d\%\n", (int)aliquota);
-    } else{
+        printf("Aliquota aplicada: %d\%\n", (int)aliquota); // Métodos de corrigir erros NA LISTA, assim que forem corrigidos, remover.
+    } else if (substituir == 2){
+        printf("Aloquota aplicada: %.1f\%\n", aliquota);
+    }
+    else{
         printf("Aliquota aplicada: %.1f\%\n", aliquota);
     }
     printf("Imposto devido: R$ %.2f\n",imposto); 
