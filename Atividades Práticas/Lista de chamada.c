@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-void recebeEntry(){
-    char nome[50];
-    char falta;
-    scanf("%s", nome);
-    while ((getchar()) != '\n');
-    falta = getchar();
-    printf("%s %c", nome, falta);
-}
-
 int main(){
 
     char nomes[5][51];
