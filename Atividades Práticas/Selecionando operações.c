@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+#include <ctype.h>
 
-int ops[12] = {
-    (int)'A',(int)'S',
-    (int)'M',(int)'D',
-    (int)'P',(int)'R',
+int ops[6] = {
     (int)'a',(int)'s',
     (int)'m',(int)'d',
     (int)'p',(int)'r'
@@ -21,7 +19,8 @@ int pedeOps(){
     printf("(R)aiz\n");
 
     resposta = getchar();
-    for (int i = 0;i <= 11;i++) {
+    resposta = tolower(resposta);
+    for (int i = 0;i <= 5;i++) {
         if ((int)resposta == ops[i]){
             return (int)resposta;            
         }
@@ -37,21 +36,11 @@ void pedeInput(float *first, float *sec){
 int main(){
 
     int op = pedeOps();
-    float x,y = 0;
+    float x = 0, y = 0;
     switch (op) {
-        case (int)'A':{
-            pedeInput(&x,&y);
-            printf("%.2f", x+y); 
-            break;
-        }
         case (int)'a':{
             pedeInput(&x,&y);
             printf("%.2f", x+y); 
-            break;
-        }
-        case (int)'S':{
-            pedeInput(&x,&y);
-            printf("%.2f", x-y); 
             break;
         }
         case (int)'s':{
@@ -64,11 +53,6 @@ int main(){
             printf("%.2f", x*y); 
             break;
         }
-        case (int)'M':{
-            pedeInput(&x,&y);
-            printf("%.2f", x*y); 
-            break;
-        }
         case (int)'d':{
             pedeInput(&x,&y);
             if (y == 0){
@@ -76,20 +60,6 @@ int main(){
                 return 1;
             }
             printf("%.2f", x/y); 
-            break;
-        }
-        case (int)'D':{
-            pedeInput(&x,&y);
-            if (y == 0){
-                printf("Nao e possivel efetuar divisao por 0\n");
-                return 1;
-            }
-            printf("%.2f", x/y); 
-            break;
-        }
-        case (int)'P':{
-            pedeInput(&x,&y);
-            printf("%.2f", pow(x,y)); 
             break;
         }
         case (int)'p':{
@@ -106,16 +76,6 @@ int main(){
             printf("%.2f", pow(x,1/y)); 
             break;
         }
-        case (int)'R':{
-            pedeInput(&x,&y);
-            if (x < 0){
-                printf("Nao e possivel calcular raiz real de um numero negativo.");
-                return 1;
-            }
-            printf("%.2f", pow(x,1/y)); 
-            break;
-        }
-        
     }
 
     return 0;

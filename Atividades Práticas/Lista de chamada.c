@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main(){
 
@@ -11,17 +12,14 @@ int main(){
         char falta;
         scanf("%s", nome);
         while ((getchar()) != '\n');
-        falta = getchar();
+        falta = tolower(getchar());
         strcpy(nomes[i], nome);
         faltas[i] = falta;
     }
 
     for (int k = 0; k <= 4;k++) {
         printf("%s - ", nomes[k]);
-        if (
-            (int)faltas[k] == (int)'p' ||
-            (int)faltas[k] == (int)'P'
-        ){
+        if ((int)faltas[k] == (int)'p'){
             printf("Presente\n");
             continue;
         }
